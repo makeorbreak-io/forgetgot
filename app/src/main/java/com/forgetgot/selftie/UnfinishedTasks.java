@@ -9,9 +9,9 @@ import android.widget.ListView;
 
 public class UnfinishedTasks extends AppCompatActivity {
     ListView simpleList;
-    Task taskList[] = {new Task("Proj7", "category2",0.5),
-            new Task("Proj8", "category3",0.25),
-            new Task("Proj9", "category1",1)};
+    Task taskList[] = {new Task(7, "Proj7", "category2",0.5),
+            new Task(8, "Proj8", "category3",0.25),
+            new Task(9, "Proj9", "category1",1)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

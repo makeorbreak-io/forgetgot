@@ -1,28 +1,29 @@
 package com.forgetgot.selftie;
 
-import android.content.Intent;
-import android.widget.Button;
-import android.widget.ImageButton;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import static com.forgetgot.selftie.R.id.button;
-import static com.forgetgot.selftie.R.styleable.View;
-
 public class Task implements Serializable{
     static public String TASK_EXTRA = "com.forgetgot.selftie.TASK_EXTRA";
-    String name;
-    String category;
-    double prediction;
-    int Id;
-    ArrayList<Double> times;
 
-    public Task(String name, String category, double prediction) {
+    private int id;
+    private String name;
+    private String category;
+    private double prediction;
+    private ArrayList<Double> times;
+    private boolean isFinished;
+
+    public Task() {
+        this.times = new ArrayList<>();
+    }
+
+    public Task(int id, String name, String category, double prediction) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.prediction = prediction;
         this.times = new ArrayList<>();
+        this.isFinished = false;
     }
 
     public String getName(){
@@ -51,5 +52,30 @@ public class Task implements Serializable{
         double error = Math.abs(realtime - prediction)/prediction;
 
         return error;
+    }
+
+    public void setID(int id){
+        this.id = id;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setCategory(String category){
+        this.category = category;
+    }
+
+
+    public void setPrediction(double prediction) {
+        this.prediction = prediction;
+    }
+
+    public void setIsFinished(boolean isFinished) {
+        this.isFinished = isFinished;
+    }
+
+    public int getID() {
+        return id;
     }
 }

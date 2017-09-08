@@ -11,12 +11,12 @@ import android.widget.ListView;
 
 public class FinishedTasks extends AppCompatActivity {
     ListView simpleList;
-    Task taskList[] = {new Task("Proj1", "category1",0.5),
-            new Task("Proj2", "category2",0.25),
-            new Task("Proj3", "category1",1),
-            new Task("Proj4", "category1",0.5),
-            new Task("Proj5", "category3",2),
-            new Task("Proj6", "category1",1.5)};
+    Task taskList[] = {new Task(1, "Proj1", "category1",0.5),
+            new Task(2, "Proj2", "category2",0.25),
+            new Task(3, "Proj3", "category1",1),
+            new Task(4, "Proj4", "category1",0.5),
+            new Task(5, "Proj5", "category3",2),
+            new Task(6, "Proj6", "category1",1.5)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
