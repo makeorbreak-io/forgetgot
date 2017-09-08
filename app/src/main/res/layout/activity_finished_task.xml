@@ -30,7 +30,6 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:layout_weight="1"
-            android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="16dp" />
@@ -40,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Category:"
+            android:text="@string/category_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="30sp" />
 
@@ -50,8 +49,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
-            android:text="Category"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="30sp" />
 
@@ -60,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Prediction:"
+            android:text="@string/prediction_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="30sp" />
 
@@ -70,8 +67,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="time"
-            android:text="0:30"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="30sp" />
 
@@ -80,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Real Time:"
+            android:text="@string/realtime_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="30sp"
             tools:layout_editor_absoluteX="16dp"
@@ -92,8 +87,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="time"
-            android:text="0:45"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="30sp" />
 
@@ -102,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Error Pencentage:"
+            android:text="@string/error_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="30sp" />
 
@@ -112,8 +105,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
-            android:text="50%"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="30sp" />
 

@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">selftie</string>
-    <string name="create_task">Create Task</string>
-    <string name="submit">Submit</string>
-    <string name="category">Category:</string>
-    <string name="name">Name:</string>
+    <string name="category_label">Category:</string>
+    <string name="prediction_label">Prediction:</string>
+    <string name="realtime_label">Real time:</string>
+    <string name="error_label">Error percentage:</string>
+    <string name="new_time_label">Add Time</string>
+    <string name="finish_task_label">Finish Task</string>
 </resources>
