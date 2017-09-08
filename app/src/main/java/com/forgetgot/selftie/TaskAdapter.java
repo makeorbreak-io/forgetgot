@@ -9,25 +9,18 @@ import android.widget.TextView;
 
 public class TaskAdapter extends BaseAdapter {
     Context context;
-    String nameList[];
-    String categories[];
+    Task tasks[];
     LayoutInflater inflter;
 
-    public TaskAdapter(Context applicationContext, String[] nameList, String[] categories) {
+    public TaskAdapter(Context applicationContext, Task[] tasks) {
         this.context = context;
-        this.nameList = nameList;
-        this.categories = categories;
+        this.tasks = tasks;
         inflter = (LayoutInflater.from(applicationContext));
     }
 
     @Override
     public int getCount() {
-        return nameList.length;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
+        return tasks.length;
     }
 
     @Override
@@ -40,8 +33,13 @@ public class TaskAdapter extends BaseAdapter {
         view = inflter.inflate(R.layout.listview, null);
         TextView name = (TextView) view.findViewById(R.id.task_name);
         TextView category = (TextView) view.findViewById(R.id.task_category);
-        name.setText(nameList[i]);
-        category.setText(categories[i]);
+        name.setText(tasks[i].getName());
+        category.setText(tasks[i].getCategory());
         return view;
+    }
+
+    public Task getItem(int position){
+
+        return tasks[position];
     }
 }
