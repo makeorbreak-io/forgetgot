@@ -17,7 +17,8 @@ public class Task implements Serializable{
         this.times = new ArrayList<>();
     }
 
-    public Task(String name, String category, double prediction) {
+    public Task(int id, String name, String category, double prediction) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.prediction = prediction;

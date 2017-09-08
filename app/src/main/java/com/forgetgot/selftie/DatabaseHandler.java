@@ -85,9 +85,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Task task = new Task(cursor.getString(1),
+        Task task = new Task(cursor.getInt(0), cursor.getString(1),
                 cursor.getString(2), Double.parseDouble(cursor.getString(3)));
-        task.setID(cursor.getInt(0));
 
         db.close(); // Closing database connection
         cursor.close();
@@ -170,7 +169,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Updating single contact
-    public int finishTask(Task task) {
+    public int finishTask(int taskId) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -178,6 +177,49 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // updating row
         return db.update(TABLE_TASKS, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(task.getID()) });
+                new String[] { String.valueOf(taskId) });
+    }
+
+    // Adding new task
+    public void addSubTask(SubTask subtask) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, subtask.getName());
+        values.put(KEY_TIME, subtask.getTime());
+        values.put(KEY_TASKID, subtask.getTaskId());
+
+        // Inserting Row
+        db.insert(TABLE_SUBTASKS, null, values);
+        db.close(); // Closing database connection
+    }
+
+    // Getting All Finished Tasks
+    public List<SubTask> getAllSubTasks(int taskid) {
+        List<SubTask> taskList = new ArrayList<SubTask>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_SUBTASKS + " WHERE " + KEY_TASKID + " = " + taskid;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                SubTask subtask = new SubTask();
+                subtask.setName(cursor.getString(1));
+                subtask.setTime(Double.parseDouble(cursor.getString(2)));
+                subtask.setTaskId(Integer.parseInt(cursor.getString(3)));
+
+                // Adding task to list
+                taskList.add(subtask);
+            } while (cursor.moveToNext());
+        }
+
+        db.close(); // Closing database connection
+        cursor.close();
+
+        // return task list
+        return taskList;
     }
 }
