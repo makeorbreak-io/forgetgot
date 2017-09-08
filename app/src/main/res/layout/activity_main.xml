@@ -110,8 +110,10 @@
                 android:layout_weight="1"
                 android:background="@drawable/add_button1"
                 android:paddingRight="0dp"
+                android:onClick="goCreateTask"
                 tools:layout_editor_absoluteX="49dp"
-                tools:layout_editor_absoluteY="16dp" />
+                tools:layout_editor_absoluteY="16dp"
+                />
 
         </LinearLayout>
 
@@ -138,6 +140,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/play_button"
                 android:elevation="0dp"
+                android:onClick="goUnfinished"
                 tools:layout_editor_absoluteX="214dp"
                 tools:layout_editor_absoluteY="254dp" />
         </LinearLayout>
@@ -164,6 +167,7 @@
                 android:layout_height="75dp"
                 android:layout_weight="1"
                 android:background="@drawable/archive_button"
+                android:onClick="goFinished"
                 tools:layout_editor_absoluteX="214dp"
                 tools:layout_editor_absoluteY="350dp" />
         </LinearLayout>
