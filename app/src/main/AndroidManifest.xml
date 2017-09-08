@@ -10,19 +10,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Homepage">
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
         </activity>
         <activity android:name=".UnfinishedTasks" />
-        <activity android:name=".UnfinishedTask" >
+        <activity android:name=".UnfinishedTask">
+        <!-- <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter> -->
+        </activity>
+        <activity android:name=".CreateTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateTask" />
         <activity android:name=".FinishedTasks" />
         <activity android:name=".FinishedTask">
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
         </activity>
     </application>
 
