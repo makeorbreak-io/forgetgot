@@ -6,45 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.forgetgot.selftie.Homepage">
 
-    <TextView
-        android:id="@+id/mainStatus"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:text="Status"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.108"
-        android:layout_marginLeft="7dp"
-        android:layout_marginStart="7dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="147dp"
-        android:layout_height="45dp"
-        android:text="Data"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="55dp" />
-
-    <TextView
-        android:id="@+id/mainCategory"
-        android:layout_width="128dp"
-        android:layout_height="35dp"
-        android:text="Category"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="141dp" />
-
     <ImageButton
         android:id="@+id/imageButton8"
         android:layout_width="69dp"
         android:layout_height="65dp"
         android:background="#00000000"
         app:srcCompat="@drawable/add_button1"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="289dp" />
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="300dp" />
 
     <ImageButton
         android:id="@+id/imageButton10"
@@ -53,34 +22,56 @@
         android:background="#00000000"
         android:elevation="0dp"
         app:srcCompat="@drawable/play_button"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="289dp" />
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="300dp" />
 
-    <ImageButton
-        android:id="@+id/imageButton11"
-        android:layout_width="71dp"
-        android:layout_height="69dp"
-        android:background="#00000000"
-        app:srcCompat="@drawable/ic_action_name"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="289dp" />
+    <LinearLayout
+        android:layout_width="295dp"
+        android:layout_height="43dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="72dp">
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="111dp"
-        android:layout_height="29dp"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="147dp" />
+        <TextView
+            android:id="@+id/mainStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status : "
+            android:textSize="30sp" />
 
+        <EditText
+            android:id="@+id/mainData"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Data"
+            android:textSize="22sp" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="65dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="294dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="171dp">
+
+        <TextView
+            android:id="@+id/mainCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="66dp"
+            android:text="Category : "
+            android:textSize="30sp" />
+
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
