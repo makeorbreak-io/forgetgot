@@ -13,22 +13,29 @@ public class FinishedTask extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView t=new TextView(this);
+        Bundle extras = getIntent().getExtras();
+        Task task;
 
-        t=(TextView)findViewById(R.id.task_name);
-        t.setText("Task1");
+        if (extras != null && (task = (Task) extras.getSerializable(Task.TASK_EXTRA)) != null) {
+            //If task is found display its information
 
-        t=(TextView)findViewById(R.id.task_category);
-        t.setText("Category");
+            TextView t=new TextView(this);
 
-        t=(TextView)findViewById(R.id.task_prediction);
-        t.setText("0:30");
+            t=(TextView)findViewById(R.id.task_name);
+            t.setText(task.getName());
 
-        t=(TextView)findViewById(R.id.task_realtime);
-        t.setText("0:45");
+            t=(TextView)findViewById(R.id.task_category);
+            t.setText(task.getCategory());
 
-        t=(TextView)findViewById(R.id.task_error);
-        t.setText("50%");
+            t=(TextView)findViewById(R.id.task_prediction);
+            t.setText(task.getPrediction() + "h");
+
+            t=(TextView)findViewById(R.id.task_realtime);
+            t.setText(task.getRealtime() + "h");
+
+            t=(TextView)findViewById(R.id.task_error);
+            t.setText(task.getError() + "");
+        }
     }
 
     @Override
