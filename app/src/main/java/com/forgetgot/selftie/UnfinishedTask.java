@@ -13,7 +13,7 @@ public class UnfinishedTask extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task);
+        setContentView(R.layout.activity_unfinished_task);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         times = new ArrayList<>();
