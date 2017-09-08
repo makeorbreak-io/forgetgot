@@ -7,7 +7,7 @@
     tools:context="com.forgetgot.selftie.Homepage">
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/mainAddBtn"
         android:layout_width="69dp"
         android:layout_height="65dp"
         android:background="#00000000"
@@ -16,13 +16,13 @@
         tools:layout_editor_absoluteY="300dp" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/mainPlayBtn"
         android:layout_width="72dp"
         android:layout_height="68dp"
         android:background="#00000000"
         android:elevation="0dp"
         app:srcCompat="@drawable/play_button"
-        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="300dp" />
 
     <LinearLayout
@@ -67,11 +67,20 @@
             android:textSize="30sp" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/mainSpinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/mainArchive"
+        android:layout_width="74dp"
+        android:layout_height="66dp"
+        android:background="#00000000"
+        app:srcCompat="@drawable/archive_button"
+        tools:layout_editor_absoluteX="279dp"
+        tools:layout_editor_absoluteY="300dp" />
 
 
 </android.support.constraint.ConstraintLayout>
