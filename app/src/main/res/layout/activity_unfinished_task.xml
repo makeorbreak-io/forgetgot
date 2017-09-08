@@ -50,44 +50,61 @@
                 android:layout_marginTop="5sp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="34sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="16dp" />
 
-            <TextView
-                android:id="@+id/task_category_label"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/category_label"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textSize="30sp" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/task_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/task_prediction_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/prediction_label"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/task_prediction_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/prediction_label"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/task_prediction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/task_prediction"
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="30sp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/task_category_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/category_label"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/task_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/time_list"
@@ -104,6 +121,15 @@
                 tools:layout_constraintRight_creator="1"
                 tools:layout_constraintTop_creator="1"></LinearLayout>
 
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:text="Add Sub Task"
+                android:textSize="24sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -112,31 +138,64 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
 
-                <ImageButton
-                    android:id="@+id/task_new_time_btn"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:adjustViewBounds="false"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="Add new time button"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/add_button1" />
-
                 <TextView
                     android:id="@+id/task_new_time_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/new_time_label"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/task_new_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:textSize="20sp" />
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/task_new_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/task_new_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/task_new_time_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:background="@android:color/transparent"
+                android:contentDescription="Add new time button"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/add_button1"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="0dp" />
 
 
         </LinearLayout>
