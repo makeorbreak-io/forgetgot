@@ -10,17 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Homepage">
+
+        </activity>
+        <activity android:name=".UnfinishedTasks" />
+        <activity android:name=".UnfinishedTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UnfinishedTasks" />
-        <activity android:name=".UnfinishedTask" />
         <activity android:name=".CreateTask" />
         <activity android:name=".FinishedTasks" />
-        <activity android:name=".FinishedTask"></activity>
+        <activity android:name=".FinishedTask">
+        </activity>
     </application>
 
 </manifest>

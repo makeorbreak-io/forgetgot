@@ -4,4 +4,6 @@
     <string name="prediction_label">Prediction:</string>
     <string name="realtime_label">Real time:</string>
     <string name="error_label">Error percentage:</string>
+    <string name="new_time_label">Add Time</string>
+    <string name="finish_task_label">Finish Task</string>
 </resources>
