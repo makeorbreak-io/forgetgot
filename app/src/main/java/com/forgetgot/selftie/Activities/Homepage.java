@@ -46,8 +46,8 @@ public class Homepage extends AppCompatActivity {
                 List<Task> t= db.getAllTasksFromCategory(category);
 
                 TextView textView =(TextView)findViewById(R.id.data);
-                String error = getAverageError(t) + "";
-                textView.setText(error);
+
+                textView.setText(getString(R.string.percentage_format, getAverageError(t)*100));
 
                 return;
 
