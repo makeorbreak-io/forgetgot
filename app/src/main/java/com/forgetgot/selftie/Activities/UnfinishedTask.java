@@ -40,24 +40,7 @@ public class UnfinishedTask extends AppCompatActivity {
         t=(TextView)findViewById(R.id.task_prediction);
         t.setText(getString(R.string.hour_format, task.getPrediction()));
 
-        subTaskList = new ArrayList<>();
-        List<SubTask> subTasks = db.getAllSubTasks(idTask);
-        for (SubTask subTask: subTasks) subTaskList.add(subTask);
-
-        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.time_list);
-
-        for(SubTask subTask : subTaskList) {
-            t = new TextView(this);
-            t.setTextSize(20);
-            t.setText(getString(R.string.subTask_format, subTask.getName(), subTask.getTime()));
-            linearLayout.addView(t);
-        }
-        if (subTaskList.isEmpty()) {
-            t = new TextView(this);
-            t.setTextSize(20);
-            t.setText("No sub tasks.");
-            linearLayout.addView(t);
-        }
+        setSubTasks();
     }
 
     public void addTask(View view) {
@@ -70,15 +53,7 @@ public class UnfinishedTask extends AppCompatActivity {
                 String nameSubTask = ((EditText)findViewById(R.id.task_new_name)).getText().toString();
                 double timeSubTask = Double.parseDouble(((EditText)findViewById(R.id.task_new_time)).getText().toString());
                 db.addSubTask(new SubTask(idTask, nameSubTask, timeSubTask));
-
-                Task task = db.getTask(idTask);
-                task.setRealTime(task.getRealTime() + timeSubTask);
-
-                TextView t = new TextView(this);
-                t.setTextSize(20);
-                t.setText(getString(R.string.subTask_format, nameSubTask, timeSubTask));
-                LinearLayout linearLayout = (LinearLayout)findViewById(R.id.time_list);
-                linearLayout.addView(t);
+                setSubTasks();
                 break;
             case R.id.finish_button:
                 db.finishTask(idTask);
@@ -90,5 +65,27 @@ public class UnfinishedTask extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         finish();
         return true;
+    }
+
+    private void setSubTasks() {
+        subTaskList = new ArrayList<>();
+        List<SubTask> subTasks = db.getAllSubTasks(idTask);
+        for (SubTask subTask: subTasks) subTaskList.add(subTask);
+
+        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.time_list);
+        linearLayout.removeAllViews();
+        for(SubTask subTask : subTaskList) {
+            TextView t = new TextView(this);
+            t.setTextSize(20);
+            t.setText(getString(R.string.subTask_format, subTask.getName(), subTask.getTime()));
+            linearLayout.addView(t);
+        }
+
+        if (subTaskList.isEmpty()) {
+            TextView t = new TextView(this);
+            t.setTextSize(20);
+            t.setText("No sub tasks.");
+            linearLayout.addView(t);
+        }
     }
 }

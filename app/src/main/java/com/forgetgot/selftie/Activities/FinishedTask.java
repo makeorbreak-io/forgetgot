@@ -48,7 +48,7 @@ public class FinishedTask extends AppCompatActivity {
 
             t=(TextView)findViewById(R.id.task_error);
             double error = Math.abs(realTime - task.getPrediction()) / task.getPrediction();
-            t.setText(getString(R.string.percentage_format, (int)error*100));
+            t.setText(getString(R.string.percentage_format, error*100));
         }
     }
 
