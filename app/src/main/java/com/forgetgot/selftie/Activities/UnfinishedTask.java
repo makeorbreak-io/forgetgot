@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.forgetgot.selftie.Database.DatabaseHandler;
 import com.forgetgot.selftie.Database.Task;
@@ -44,14 +45,22 @@ public class UnfinishedTask extends AppCompatActivity {
     }
 
     public void addTask(View view) {
+        //Error found
         if (((EditText)findViewById(R.id.task_new_name)).getText().toString().matches("") ||
                 ((EditText)findViewById(R.id.task_new_time)).getText().toString().matches("")) {
+            Toast.makeText(this,getString(R.string.required_fields), Toast.LENGTH_LONG).show();
             return;
         }
+
+        //Add SubTask to database
         String nameSubTask = ((EditText)findViewById(R.id.task_new_name)).getText().toString();
         double timeSubTask = Double.parseDouble(((EditText)findViewById(R.id.task_new_time)).getText().toString());
         db.addSubTask(new SubTask(idTask, nameSubTask, timeSubTask));
         setSubTasks();
+
+        //Delete input fields
+        ((EditText)findViewById(R.id.task_new_name)).setText("");
+        ((EditText)findViewById(R.id.task_new_time)).setText("");
     }
 
     public void finishTask(View view){
