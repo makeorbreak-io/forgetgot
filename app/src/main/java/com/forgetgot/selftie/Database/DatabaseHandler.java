@@ -223,4 +223,28 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return task list
         return taskList;
     }
+
+    public List<String> getCategories(){
+        List<String> Categories = new ArrayList<String>();
+        // Select All Query
+        String selectQuery = "SELECT " + KEY_CATEGORY + " FROM " + TABLE_TASKS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String category = cursor.getString(0);
+                // Adding task to list
+                Categories.add(category);
+            } while (cursor.moveToNext());
+        }
+
+        db.close(); // Closing database connection
+        cursor.close();
+
+        // return task list
+        return Categories;
+    }
 }
