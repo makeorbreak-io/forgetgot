@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.forgetgot.selftie" >
+    package="com.forgetgot.selftie">
 
     <application
         android:allowBackup="true"
@@ -8,37 +8,43 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".Activities.Homepage" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.Homepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Activities.UnfinishedTasks">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.Homepage"/>
+                android:value=".Activities.Homepage" />
         </activity>
-        <activity android:name=".Activities.UnfinishedTask" >
+        <activity android:name=".Activities.UnfinishedTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.UnfinishedTasks"/>
+                android:value=".Activities.UnfinishedTasks" />
         </activity>
         <activity android:name=".Activities.CreateTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.Homepage"/>
+                android:value=".Activities.Homepage" />
         </activity>
         <activity android:name=".Activities.FinishedTasks">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.Homepage"/>
+                android:value=".Activities.Homepage" />
         </activity>
-        <activity android:name=".Activities.FinishedTask" >
+        <activity android:name=".Activities.FinishedTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.FinishedTasks"/>
+                android:value=".Activities.FinishedTasks" />
+        </activity>
+        <activity android:name=".Activities.AboutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.Homepage" />
         </activity>
     </application>
 
