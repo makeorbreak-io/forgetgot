@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
 import java.util.ArrayList;
@@ -162,7 +163,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<Task> getAllTasksFromCategory(String category) {
         List<Task> taskList = new ArrayList<>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_CATEGORY + " = " + category;
+        String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_CATEGORY + " = \"" + category + "\"";
+
+        Log.d("Tag3",selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -278,4 +281,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return task list
         return Categories;
     }
+
+
 }

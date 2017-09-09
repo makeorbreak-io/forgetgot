@@ -39,15 +39,15 @@ public class FinishedTask extends AppCompatActivity {
             t.setText(getString(R.string.hour_format, calculateRealTime(db, id)));
 
             t=(TextView)findViewById(R.id.task_error);
-            t.setText(getString(R.string.percentage_format, calculateError(db,id,task)*100));
+            t.setText(getString(R.string.percentage_format, calculateError(db,task)*100));
         }
     }
 
-    public double calculateError(DatabaseHandler db, int id,  Task task){
-        return Math.abs(calculateRealTime(db, id) - task.getPrediction()) / task.getPrediction();
+    public static double calculateError(DatabaseHandler db, Task task){
+        return Math.abs(calculateRealTime(db,task.getID()) - task.getPrediction()) / task.getPrediction();
     }
 
-    public double calculateRealTime(DatabaseHandler db, int id){
+    public static double calculateRealTime(DatabaseHandler db, int id){
         double realTime = 0;
         List<SubTask> subTasks = db.getAllSubTasks(id);
         for (SubTask subTask: subTasks) realTime += subTask.getTime();
