@@ -17,7 +17,7 @@
     <string name="no_data">No Data</string>
     <string name="about_title">Self Time Empowering</string>
     <string name="app_description">Selftie is an android app related to time management and self improvement. The user can make delay predictions about certain tasks and finally check the actual duration of the task. In this way, the user will become more aware of his judgment about his abilities and the difficulty of the tasks he has.</string>
-    <string name="developed_by">Developed in Make or Break (2017) by:\\nFrancisco Barbosa\\nHélder Antunes\\nInês Proença\\nPedro Pacheco</string>
+    <string name="developed_by">Developed in Make or Break (2017) by:\nFrancisco Barbosa\nHélder Antunes\nInês Proença\nPedro Pacheco</string>
     <string name="error_rating_label">Error rating:</string>
     <string name="create_task_label">Create Task</string>
     <string name="pending_tasks_label">Pending Tasks</string>
