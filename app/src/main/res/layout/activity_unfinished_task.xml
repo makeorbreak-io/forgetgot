@@ -65,16 +65,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/prediction_label"
+                    android:text="Prediction time (hours): "
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/task_prediction"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:gravity="center_vertical"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp" />
 
@@ -195,7 +196,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/add_button1"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="0dp" />
+                tools:layout_editor_absoluteY="0dp"
+                android:onClick="addTask" />
 
 
         </LinearLayout>
@@ -216,6 +218,7 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintRight_creator="1"
+        android:onClick="addTask" />
 
 </android.support.constraint.ConstraintLayout>

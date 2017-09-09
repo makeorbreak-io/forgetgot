@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.forgetgot.selftie.Database.SubTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +129,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Getting All Unfinished Tasks
     public List<Task> getAllUninishedTasks() {
-        List<Task> taskList = new ArrayList<Task>();
+        List<Task> taskList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_ISFINISHED + " = 0";
 

@@ -44,7 +44,7 @@ public class UnfinishedTasks extends AppCompatActivity {
                 Task task = (Task) adapterView.getItemAtPosition(i);
 
                 Intent intent = new Intent(view.getContext(), UnfinishedTask.class);
-                intent.putExtra(Task.TASK_EXTRA_ID, task);
+                intent.putExtra(Task.TASK_EXTRA_ID, task.getID());
 
                 startActivity(intent);
             }
