@@ -2,15 +2,12 @@ package com.forgetgot.selftie.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.forgetgot.selftie.Database.DatabaseHandler;
 import com.forgetgot.selftie.Database.SubTask;
 import com.forgetgot.selftie.R;
 import com.forgetgot.selftie.Database.Task;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -40,16 +37,23 @@ public class FinishedTask extends AppCompatActivity {
             t=(TextView)findViewById(R.id.task_prediction);
             t.setText(getString(R.string.hour_format, task.getPrediction()));
 
-            double realTime = 0;
-            List<SubTask> subTasks = db.getAllSubTasks(id);
-            for (SubTask subTask: subTasks) realTime += subTask.getTime();
             t=(TextView)findViewById(R.id.task_realtime);
-            t.setText(getString(R.string.hour_format, realTime));
+            t.setText(getString(R.string.hour_format, calculateRealTime(db, id)));
 
             t=(TextView)findViewById(R.id.task_error);
-            double error = Math.abs(realTime - task.getPrediction()) / task.getPrediction();
-            t.setText(getString(R.string.percentage_format, error*100));
+            t.setText(getString(R.string.percentage_format, calculateError(db,id,task)*100));
         }
+    }
+
+    public double calculateError(DatabaseHandler db, int id,  Task task){
+        return Math.abs(calculateRealTime(db, id) - task.getPrediction()) / task.getPrediction();
+    }
+
+    public double calculateRealTime(DatabaseHandler db, int id){
+        double realTime = 0;
+        List<SubTask> subTasks = db.getAllSubTasks(id);
+        for (SubTask subTask: subTasks) realTime += subTask.getTime();
+        return realTime;
     }
 
     @Override
