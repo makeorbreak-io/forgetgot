@@ -13,4 +13,5 @@
     <string name="percentage_format" formatted="false">%.2f%%</string>
     <string name="subTask_format" formatted="false">%1$s - %2$.2fh</string>
     <string name="no_subtask">No sub tasks.</string>
+    <string name="required_fields">All fields are required</string>
 </resources>
