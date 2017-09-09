@@ -38,7 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_TASKS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NAME + " TEXT,"
-                + KEY_PREDICTION_TIME + " DOUBLE," //TODO check this
+                + KEY_PREDICTION_TIME + " DOUBLE,"
                 + KEY_ISFINISHED + " BOOLEAN default 0,"
                 + KEY_CATEGORY + " TEXT" + ")";
         db.execSQL(CREATE_TASKS_TABLE);
@@ -46,7 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_SUBTASKS_TABLE = "CREATE TABLE " + TABLE_SUBTASKS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NAME + " TEXT,"
-                + KEY_TIME + " DOUBLE," //TODO check this
+                + KEY_TIME + " DOUBLE,"
                 + KEY_TASKID + " INTEGER,"
                 + "FOREIGN KEY(" + KEY_TASKID + ") REFERENCES " + TABLE_TASKS + "(" + KEY_ID + "))";
         db.execSQL(CREATE_SUBTASKS_TABLE);
