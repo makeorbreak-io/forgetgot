@@ -30,8 +30,7 @@ public class Homepage extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
 // Array of choices
          categories = db.getCategories();
-
-
+         categories.add(0,"All");
 
 
 // Selection of the spinner
