@@ -102,7 +102,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_ISFINISHED + " = 1";
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
@@ -133,7 +133,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_ISFINISHED + " = 0";
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list

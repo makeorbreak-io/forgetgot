@@ -2,11 +2,14 @@ package com.forgetgot.selftie.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.forgetgot.selftie.Database.DatabaseHandler;
 import com.forgetgot.selftie.R;
 import com.forgetgot.selftie.Database.Task;
+
+import java.util.List;
 
 public class FinishedTask extends AppCompatActivity {
 
@@ -42,7 +45,7 @@ public class FinishedTask extends AppCompatActivity {
             t.setText(getString(R.string.hour_format, task.getRealtime()));
 
             t=(TextView)findViewById(R.id.task_error);
-            t.setText(task.getError() + "");
+            t.setText(getString(R.string.percentage_format, (int)task.getError()*100));
         }
     }
 

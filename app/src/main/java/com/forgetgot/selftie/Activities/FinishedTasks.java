@@ -33,8 +33,6 @@ public class FinishedTasks extends AppCompatActivity {
 
         taskList = db.getAllFinishedTasks();
 
-        taskList.add(new Task(1, "Proj1", "category1", 2));
-
         TaskAdapter adapter = new TaskAdapter(getApplicationContext(), taskList);
         simpleList.setAdapter(adapter);
 
