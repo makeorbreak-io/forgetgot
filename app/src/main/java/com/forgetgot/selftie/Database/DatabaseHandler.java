@@ -163,7 +163,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<Task> getAllTasksFromCategory(String category) {
         List<Task> taskList = new ArrayList<>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_CATEGORY + " = \"" + category + "\"";
+        String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_ISFINISHED + " = 1 AND " + KEY_CATEGORY + " = \"" + category + "\"";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
