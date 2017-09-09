@@ -266,7 +266,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<String> getCategories(){
         List<String> Categories = new ArrayList<String>();
         // Select All Query
-        String selectQuery = "SELECT DISTINCT " + KEY_CATEGORY + " FROM " + TABLE_TASKS;
+        String selectQuery = "SELECT DISTINCT " + KEY_CATEGORY + " FROM " + TABLE_TASKS + " WHERE " + KEY_ISFINISHED + " = 1";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
