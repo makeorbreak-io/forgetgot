@@ -18,12 +18,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_TASKS = "Tasks"; // Contacts table name
     private static final String TABLE_SUBTASKS = "SubTasks"; // Contacts table name
 
-    // Contacts Table Columns names
+    // Tasks Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_PREDICTION_TIME = "prediction_time";
     private static final String KEY_ISFINISHED = "is_finished";
     private static final String KEY_CATEGORY = "category";
+    // SubTasks Table Columns names
     private static final String KEY_TIME = "time";
     private static final String KEY_TASKID = "taskid";
 
