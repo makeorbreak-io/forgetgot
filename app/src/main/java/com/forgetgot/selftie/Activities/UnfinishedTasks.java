@@ -25,8 +25,6 @@ public class UnfinishedTasks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         DatabaseHandler db = new DatabaseHandler(this);
         taskList = db.getAllUninishedTasks();
 
@@ -49,12 +47,6 @@ public class UnfinishedTasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public boolean onSupportNavigateUp(){
-        finish();
-        return true;
     }
 
     @Override

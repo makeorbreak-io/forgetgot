@@ -16,16 +16,29 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.UnfinishedTasks">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.Homepage"/>
         </activity>
         <activity android:name=".Activities.UnfinishedTask" >
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.UnfinishedTasks"/>
         </activity>
         <activity android:name=".Activities.CreateTask">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.Homepage"/>
         </activity>
         <activity android:name=".Activities.FinishedTasks">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.Homepage"/>
         </activity>
         <activity android:name=".Activities.FinishedTask" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.FinishedTasks"/>
         </activity>
     </application>
 
