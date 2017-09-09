@@ -107,6 +107,15 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:text="Current Sub Tasks"
+                android:textSize="24sp" />
+
             <LinearLayout
                 android:id="@+id/time_list"
                 android:layout_width="match_parent"

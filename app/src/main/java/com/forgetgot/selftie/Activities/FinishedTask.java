@@ -6,8 +6,11 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.forgetgot.selftie.Database.DatabaseHandler;
+import com.forgetgot.selftie.Database.SubTask;
 import com.forgetgot.selftie.R;
 import com.forgetgot.selftie.Database.Task;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -28,11 +31,7 @@ public class FinishedTask extends AppCompatActivity {
 
             Task task = db.getTask(id);
 
-            //If task is found display its information
-
-            TextView t=new TextView(this);
-
-            t=(TextView)findViewById(R.id.task_name);
+            TextView t=(TextView)findViewById(R.id.task_name);
             t.setText(task.getName());
 
             t=(TextView)findViewById(R.id.task_category);
@@ -41,11 +40,15 @@ public class FinishedTask extends AppCompatActivity {
             t=(TextView)findViewById(R.id.task_prediction);
             t.setText(getString(R.string.hour_format, task.getPrediction()));
 
+            double realTime = 0;
+            List<SubTask> subTasks = db.getAllSubTasks(id);
+            for (SubTask subTask: subTasks) realTime += subTask.getTime();
             t=(TextView)findViewById(R.id.task_realtime);
-            t.setText(getString(R.string.hour_format, task.getRealtime()));
+            t.setText(getString(R.string.hour_format, realTime));
 
             t=(TextView)findViewById(R.id.task_error);
-            t.setText(getString(R.string.percentage_format, (int)task.getError()*100));
+            double error = Math.abs(realTime - task.getPrediction()) / task.getPrediction();
+            t.setText(getString(R.string.percentage_format, (int)error*100));
         }
     }
 

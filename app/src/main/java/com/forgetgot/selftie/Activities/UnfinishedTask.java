@@ -52,6 +52,12 @@ public class UnfinishedTask extends AppCompatActivity {
             t.setText(getString(R.string.subTask_format, subTask.getName(), subTask.getTime()));
             linearLayout.addView(t);
         }
+        if (subTaskList.isEmpty()) {
+            t = new TextView(this);
+            t.setTextSize(20);
+            t.setText("No sub tasks.");
+            linearLayout.addView(t);
+        }
     }
 
     public void addTask(View view) {
@@ -64,6 +70,9 @@ public class UnfinishedTask extends AppCompatActivity {
                 String nameSubTask = ((EditText)findViewById(R.id.task_new_name)).getText().toString();
                 double timeSubTask = Double.parseDouble(((EditText)findViewById(R.id.task_new_time)).getText().toString());
                 db.addSubTask(new SubTask(idTask, nameSubTask, timeSubTask));
+
+                Task task = db.getTask(idTask);
+                task.setRealTime(task.getRealTime() + timeSubTask);
 
                 TextView t = new TextView(this);
                 t.setTextSize(20);

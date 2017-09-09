@@ -1,7 +1,6 @@
 package com.forgetgot.selftie.Database;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Task implements Serializable{
     static public String TASK_EXTRA_ID = "com.forgetgot.selftie.TASK_EXTRA_ID";
@@ -10,20 +9,16 @@ public class Task implements Serializable{
     private String name;
     private String category;
     private double prediction;
-    private ArrayList<Double> times;
-    private boolean isFinished;
+    private double realTime = 0;
+    private boolean isFinished = false;
 
-    public Task() {
-        this.times = new ArrayList<>();
-    }
+    public Task() { }
 
     public Task(int id, String name, String category, double prediction) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.prediction = prediction;
-        this.times = new ArrayList<>();
-        this.isFinished = false;
     }
 
     public String getName(){
@@ -38,20 +33,12 @@ public class Task implements Serializable{
         return prediction;
     }
 
-    public double getRealtime(){
-        double realtime = 0;
-
-        for(double time: times)
-            realtime += time;
-
-        return realtime;
+    public double getRealTime(){
+        return realTime;
     }
 
-    public double getError(){
-        double realtime = getRealtime();
-        double error = Math.abs(realtime - prediction)/prediction;
-
-        return error;
+    public void setRealTime(double realTime) {
+        this.realTime = realTime;
     }
 
     public void setID(int id){
@@ -65,7 +52,6 @@ public class Task implements Serializable{
     public void setCategory(String category){
         this.category = category;
     }
-
 
     public void setPrediction(double prediction) {
         this.prediction = prediction;
