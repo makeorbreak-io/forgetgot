@@ -1,9 +1,11 @@
-package com.forgetgot.selftie;
+package com.forgetgot.selftie.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.forgetgot.selftie.R;
 
 import java.util.ArrayList;
 

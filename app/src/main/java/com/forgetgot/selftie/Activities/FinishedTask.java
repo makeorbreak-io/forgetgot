@@ -1,8 +1,12 @@
-package com.forgetgot.selftie;
+package com.forgetgot.selftie.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.forgetgot.selftie.Database.DatabaseHandler;
+import com.forgetgot.selftie.R;
+import com.forgetgot.selftie.Database.Task;
 
 public class FinishedTask extends AppCompatActivity {
 
@@ -14,9 +18,13 @@ public class FinishedTask extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle extras = getIntent().getExtras();
-        Task task;
+        int id;
 
-        if (extras != null && (task = (Task) extras.getSerializable(Task.TASK_EXTRA)) != null) {
+        if (extras != null && (id  = extras.getInt(Task.TASK_EXTRA_ID, -1)) != -1) {
+            DatabaseHandler db = new DatabaseHandler(this);
+
+            Task task = db.getTask(id);
+
             //If task is found display its information
 
             TextView t=new TextView(this);
@@ -28,10 +36,10 @@ public class FinishedTask extends AppCompatActivity {
             t.setText(task.getCategory());
 
             t=(TextView)findViewById(R.id.task_prediction);
-            t.setText(task.getPrediction() + "h");
+            t.setText(getString(R.string.hour_format, task.getPrediction()));
 
             t=(TextView)findViewById(R.id.task_realtime);
-            t.setText(task.getRealtime() + "h");
+            t.setText(getString(R.string.hour_format, task.getRealtime()));
 
             t=(TextView)findViewById(R.id.task_error);
             t.setText(task.getError() + "");

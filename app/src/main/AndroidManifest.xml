@@ -9,23 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".Homepage" >
-
-        </activity>
-        <activity android:name=".UnfinishedTasks">
-
-        </activity>
-        <activity android:name=".UnfinishedTask" >
+        <activity android:name=".Activities.Homepage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateTask">
+        <activity android:name=".Activities.UnfinishedTasks">
+
         </activity>
-        <activity android:name=".FinishedTasks">
+        <activity android:name=".Activities.UnfinishedTask" >
+
         </activity>
-        <activity android:name=".FinishedTask" >
+        <activity android:name=".Activities.CreateTask">
+        </activity>
+        <activity android:name=".Activities.FinishedTasks">
+        </activity>
+        <activity android:name=".Activities.FinishedTask" >
         </activity>
     </application>
 

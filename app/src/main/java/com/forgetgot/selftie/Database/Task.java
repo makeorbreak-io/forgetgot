@@ -1,10 +1,10 @@
-package com.forgetgot.selftie;
+package com.forgetgot.selftie.Database;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Task implements Serializable{
-    static public String TASK_EXTRA = "com.forgetgot.selftie.TASK_EXTRA";
+    static public String TASK_EXTRA_ID = "com.forgetgot.selftie.TASK_EXTRA_ID";
 
     private int id;
     private String name;

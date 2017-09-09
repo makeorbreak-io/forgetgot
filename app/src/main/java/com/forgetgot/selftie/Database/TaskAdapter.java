@@ -1,4 +1,4 @@
-package com.forgetgot.selftie;
+package com.forgetgot.selftie.Database;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,20 +7,25 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.forgetgot.selftie.Database.Task;
+import com.forgetgot.selftie.R;
+
+import java.util.List;
+
 public class TaskAdapter extends BaseAdapter {
     Context context;
-    Task tasks[];
+    List<Task> tasks;
     LayoutInflater inflter;
 
-    public TaskAdapter(Context applicationContext, Task[] tasks) {
-        this.context = context;
+    public TaskAdapter(Context applicationContext, List<Task> tasks) {
+        this.context = applicationContext;
         this.tasks = tasks;
         inflter = (LayoutInflater.from(applicationContext));
     }
 
     @Override
     public int getCount() {
-        return tasks.length;
+        return tasks.size();
     }
 
     @Override
@@ -33,13 +38,13 @@ public class TaskAdapter extends BaseAdapter {
         view = inflter.inflate(R.layout.listview, null);
         TextView name = (TextView) view.findViewById(R.id.task_name);
         TextView category = (TextView) view.findViewById(R.id.task_category);
-        name.setText(tasks[i].getName());
-        category.setText(tasks[i].getCategory());
+        name.setText(tasks.get(i).getName());
+        category.setText(tasks.get(i).getCategory());
         return view;
     }
 
     public Task getItem(int position){
 
-        return tasks[position];
+        return tasks.get(position);
     }
 }

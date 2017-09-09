@@ -1,4 +1,4 @@
-package com.forgetgot.selftie;
+package com.forgetgot.selftie.Database;
 
 /**
  * Created by ines on 08-09-2017.

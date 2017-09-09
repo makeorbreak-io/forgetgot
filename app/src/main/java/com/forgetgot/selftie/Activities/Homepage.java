@@ -1,18 +1,15 @@
-package com.forgetgot.selftie;
+package com.forgetgot.selftie.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
+
+import com.forgetgot.selftie.R;
 
 import java.util.ArrayList;
-
-import static com.forgetgot.selftie.R.id.mainSpinner;
-import static com.forgetgot.selftie.R.layout.activity_create_task;
 
 public class Homepage extends AppCompatActivity {
     ArrayList<Float> categories;
