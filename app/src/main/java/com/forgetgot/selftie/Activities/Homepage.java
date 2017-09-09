@@ -43,11 +43,8 @@ public class Homepage extends AppCompatActivity {
                 Spinner spinner = (Spinner) findViewById(R.id.mainSpinner);
                 String category = spinner.getSelectedItem().toString();
 
-                Log.d("Tag1",category);
-
                 List<Task> t= db.getAllTasksFromCategory(category);
 
-                Log.d("Tag2",t.size()+"");
                 TextView textView =(TextView)findViewById(R.id.data);
                 String error = getAverageError(t) + "";
                 textView.setText(error);
