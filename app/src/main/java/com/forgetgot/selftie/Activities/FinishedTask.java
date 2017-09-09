@@ -18,8 +18,6 @@ public class FinishedTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finished_task);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         Bundle extras = getIntent().getExtras();
         int id;
 
