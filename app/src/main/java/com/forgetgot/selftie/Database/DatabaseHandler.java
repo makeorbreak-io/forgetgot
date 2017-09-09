@@ -158,6 +158,37 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return taskList;
     }
 
+    // Getting All Tasks from Category
+    public List<Task> getAllUninishedTasks(String category) {
+        List<Task> taskList = new ArrayList<>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_CATEGORY + " = " + category;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Task task = new Task();
+                task.setID(Integer.parseInt(cursor.getString(0)));
+                task.setName(cursor.getString(1));
+                task.setPrediction(Double.parseDouble(cursor.getString(2)));
+                task.setIsFinished(Boolean.parseBoolean(cursor.getString(3)));
+                task.setCategory(cursor.getString(4));
+
+                // Adding task to list
+                taskList.add(task);
+            } while (cursor.moveToNext());
+        }
+
+        db.close(); // Closing database connection
+        cursor.close();
+
+        // return task list
+        return taskList;
+    }
+
     // Getting contacts Count
     public int getTasksCount() {
         String countQuery = "SELECT  * FROM " + TABLE_TASKS;
