@@ -18,12 +18,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_TASKS = "Tasks"; // Contacts table name
     private static final String TABLE_SUBTASKS = "SubTasks"; // Contacts table name
 
-    // Contacts Table Columns names
+    // Tasks Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_PREDICTION_TIME = "prediction_time";
     private static final String KEY_ISFINISHED = "is_finished";
     private static final String KEY_CATEGORY = "category";
+    // SubTasks Table Columns names
     private static final String KEY_TIME = "time";
     private static final String KEY_TASKID = "taskid";
 
@@ -222,5 +223,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // return task list
         return taskList;
+    }
+
+    public List<String> getCategories(){
+        List<String> Categories = new ArrayList<String>();
+        // Select All Query
+        String selectQuery = "SELECT " + KEY_CATEGORY + " FROM " + TABLE_TASKS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String category = cursor.getString(0);
+                // Adding task to list
+                Categories.add(category);
+            } while (cursor.moveToNext());
+        }
+
+        db.close(); // Closing database connection
+        cursor.close();
+
+        // return task list
+        return Categories;
     }
 }

@@ -7,26 +7,29 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.forgetgot.selftie.Database.DatabaseHandler;
 import com.forgetgot.selftie.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Homepage extends AppCompatActivity {
-    ArrayList<Float> categories;
+   private List<String> categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DatabaseHandler db = new DatabaseHandler(this);
 // Array of choices
-        String colors[] = {"Cat1","Cat2","Cat3","Cat3"};
+         categories = db.getCategories();
 
 // Selection of the spinner
         Spinner spinner = (Spinner) findViewById(R.id.mainSpinner);
 
 // Application of the Array to the Spinner
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, colors);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, categories);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
         spinner.setAdapter(spinnerArrayAdapter);
     }
