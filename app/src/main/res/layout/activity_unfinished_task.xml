@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Prediction time (hours): "
+                    android:text="@string/prediction_label"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textSize="20sp" />
 
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Current Sub Tasks"
+                android:text="@string/current_subtask_label"
                 android:textSize="24sp" />
 
             <LinearLayout
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingTop="20dp"
-                android:text="Add Sub Task"
+                android:text="@string/add_subtask_label"
                 android:textSize="24sp" />
 
             <LinearLayout
@@ -178,7 +178,7 @@
                     android:id="@+id/task_new_name_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name: "
+                    android:text="@string/name_label"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textSize="20sp" />
 
@@ -201,7 +201,7 @@
                 android:layout_weight="1"
                 android:adjustViewBounds="false"
                 android:background="@android:color/transparent"
-                android:contentDescription="Add new time button"
+                android:contentDescription="@string/add_new_time_btn_label"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/add_button1"
                 tools:layout_editor_absoluteX="16dp"

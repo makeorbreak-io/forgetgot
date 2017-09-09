@@ -22,4 +22,7 @@
     <string name="create_task_label">Create Task</string>
     <string name="pending_tasks_label">Pending Tasks</string>
     <string name="finished_tasks_label">Finished Tasks</string>
+    <string name="add_new_time_btn_label">Add new time button</string>
+    <string name="add_subtask_label">Add Sub Task</string>
+    <string name="current_subtask_label">Current Sub Tasks</string>
 </resources>
