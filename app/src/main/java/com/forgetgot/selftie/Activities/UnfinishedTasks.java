@@ -23,7 +23,7 @@ public class UnfinishedTasks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unfinished_tasks);
+        setContentView(R.layout.activity_tasks);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -55,5 +55,14 @@ public class UnfinishedTasks extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         finish();
         return true;
+    }
+
+    @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+
+        View empty = findViewById(R.id.empty);
+        ListView list = (ListView) findViewById(R.id.simpleListView);
+        list.setEmptyView(empty);
     }
 }

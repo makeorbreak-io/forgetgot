@@ -26,7 +26,7 @@ public class FinishedTasks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finished_tasks);
+        setContentView(R.layout.activity_tasks);
         simpleList = (ListView)findViewById(R.id.simpleListView);
 
         DatabaseHandler db = new DatabaseHandler(this);
@@ -53,5 +53,14 @@ public class FinishedTasks extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         finish();
         return true;
+    }
+
+    @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+
+        View empty = findViewById(R.id.empty);
+        ListView list = (ListView) findViewById(R.id.simpleListView);
+        list.setEmptyView(empty);
     }
 }
