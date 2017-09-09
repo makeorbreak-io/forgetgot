@@ -28,12 +28,13 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DatabaseHandler db = new DatabaseHandler(this);
-// Array of choices
-         categories = db.getCategories();
-         categories.add(0,"All");
+        // Array of choices
+        categories = new ArrayList<>();
+        categories.add("All");
+        categories.addAll(db.getCategories());
 
 
-// Selection of the spinner
+        // Selection of the spinner
         Spinner spinner = (Spinner) findViewById(R.id.mainSpinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -57,7 +58,7 @@ public class Homepage extends AppCompatActivity {
             }
         });
 
-// Application of the Array to the Spinner
+        // Application of the Array to the Spinner
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, categories);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
         spinner.setAdapter(spinnerArrayAdapter);
