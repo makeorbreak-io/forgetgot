@@ -16,9 +16,7 @@ import java.util.List;
 
 public class UnfinishedTasks extends AppCompatActivity {
     ListView simpleList;
-    List<Task> taskList; /*= {new Task(7, "Proj7", "category2",0.5),
-            new Task(8, "Proj8", "category3",0.25),
-            new Task(9, "Proj9", "category1",1)};*/
+    List<Task> taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

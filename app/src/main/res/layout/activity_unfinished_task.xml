@@ -228,6 +228,6 @@
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        android:onClick="addTask" />
+        android:onClick="finishTask" />
 
 </android.support.constraint.ConstraintLayout>

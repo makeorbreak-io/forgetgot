@@ -1,5 +1,6 @@
 package com.forgetgot.selftie.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,6 @@ public class UnfinishedTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unfinished_task);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle extras = getIntent().getExtras();
         idTask = extras.getInt(Task.TASK_EXTRA_ID, -1);
@@ -44,21 +44,23 @@ public class UnfinishedTask extends AppCompatActivity {
     }
 
     public void addTask(View view) {
-        switch (view.getId()) {
-            case R.id.task_new_time_btn:
-                if (((EditText)findViewById(R.id.task_new_name)).getText().toString().matches("") ||
-                        ((EditText)findViewById(R.id.task_new_time)).getText().toString().matches("")) {
-                    return;
-                }
-                String nameSubTask = ((EditText)findViewById(R.id.task_new_name)).getText().toString();
-                double timeSubTask = Double.parseDouble(((EditText)findViewById(R.id.task_new_time)).getText().toString());
-                db.addSubTask(new SubTask(idTask, nameSubTask, timeSubTask));
-                setSubTasks();
-                break;
-            case R.id.finish_button:
-                db.finishTask(idTask);
-                break;
+        if (((EditText)findViewById(R.id.task_new_name)).getText().toString().matches("") ||
+                ((EditText)findViewById(R.id.task_new_time)).getText().toString().matches("")) {
+            return;
         }
+        String nameSubTask = ((EditText)findViewById(R.id.task_new_name)).getText().toString();
+        double timeSubTask = Double.parseDouble(((EditText)findViewById(R.id.task_new_time)).getText().toString());
+        db.addSubTask(new SubTask(idTask, nameSubTask, timeSubTask));
+        setSubTasks();
+    }
+
+    public void finishTask(View view){
+        db.finishTask(idTask);
+
+        //Go to homepage
+        Intent intent = new Intent(this, Homepage.class);
+
+        startActivity(intent);
     }
 
     @Override
@@ -84,7 +86,7 @@ public class UnfinishedTask extends AppCompatActivity {
         if (subTaskList.isEmpty()) {
             TextView t = new TextView(this);
             t.setTextSize(20);
-            t.setText("No sub tasks.");
+            t.setText(R.string.no_subtask);
             linearLayout.addView(t);
         }
     }
