@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="About"
+                android:text="Self time empowering"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 app:layout_constraintLeft_toLeftOf="parent"

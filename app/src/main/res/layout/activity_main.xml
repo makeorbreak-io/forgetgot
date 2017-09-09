@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/mainStatus"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:text="Error rating: "
@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/data"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="No data "
