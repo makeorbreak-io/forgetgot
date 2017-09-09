@@ -159,7 +159,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Getting All Tasks from Category
-    public List<Task> getAllUninishedTasks(String category) {
+    public List<Task> getAllTasksFromCategory(String category) {
         List<Task> taskList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_TASKS + " WHERE " + KEY_CATEGORY + " = " + category;
