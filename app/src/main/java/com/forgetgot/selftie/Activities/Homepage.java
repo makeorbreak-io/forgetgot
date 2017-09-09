@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -79,7 +80,7 @@ public class Homepage extends AppCompatActivity {
 
         for (Task task: tasks) sum+=calculateError(db,task);
 
-        if(tasks.size()!=0) return sum/tasks.size();
+        if(tasks.size()!=0) return sum/(double)tasks.size();
         else return 0;
     }
 

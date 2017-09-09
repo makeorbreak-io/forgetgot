@@ -36,7 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_TASKS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_NAME + " TEXT,"
                 + KEY_PREDICTION_TIME + " DOUBLE,"
                 + KEY_ISFINISHED + " BOOLEAN default 0,"
@@ -44,7 +44,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_TASKS_TABLE);
 
         String CREATE_SUBTASKS_TABLE = "CREATE TABLE " + TABLE_SUBTASKS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_NAME + " TEXT,"
                 + KEY_TIME + " DOUBLE,"
                 + KEY_TASKID + " INTEGER,"
@@ -75,6 +75,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_TASKS, null, values);
         db.close(); // Closing database connection
+    }
+
+    public void deleteTask(Task task) {
+        Log.d("MYTAG", "passou");
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_SUBTASKS, KEY_TASKID + "=?", new String[]{Integer.toString(task.getID())});
+        db.delete(TABLE_TASKS,KEY_NAME + "=?", new String[]{task.getName()});
+        db.close();
     }
 
     // Getting single task
@@ -286,7 +294,5 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return task list
         return Categories;
     }
-
-
 
 }
