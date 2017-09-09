@@ -3,6 +3,9 @@ package com.forgetgot.selftie.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -26,6 +29,10 @@ public class UnfinishedTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unfinished_task);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setTitle("  SELFTIE");
 
         Bundle extras = getIntent().getExtras();
         idTask = extras.getInt(Task.TASK_EXTRA_ID, -1);
@@ -98,5 +105,23 @@ public class UnfinishedTask extends AppCompatActivity {
             t.setText(R.string.no_subtask);
             linearLayout.addView(t);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.home_page_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.about_option) {
+            Intent myIntent = new Intent(this, AboutActivity.class);
+            startActivity(myIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
