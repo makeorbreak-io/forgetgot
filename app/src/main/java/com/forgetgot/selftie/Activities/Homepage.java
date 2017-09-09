@@ -31,23 +31,27 @@ public class Homepage extends AppCompatActivity {
         // Array of choices
         categories = new ArrayList<>();
         categories.add("All");
-        categories.addAll(db.getCategories());
-
 
         // Selection of the spinner
         Spinner spinner = (Spinner) findViewById(R.id.mainSpinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                DatabaseHandler db = new DatabaseHandler(view.getContext());
-
-                Spinner spinner = (Spinner) findViewById(R.id.mainSpinner);
-                String category = spinner.getSelectedItem().toString();
-
-                List<Task> t= db.getAllTasksFromCategory(category);
 
                 TextView textView =(TextView)findViewById(R.id.data);
 
-                textView.setText(getString(R.string.percentage_format, getAverageError(t)*100));
+                if(categories.size() < 2) {
+                    textView.setText(getString(R.string.no_data));
+                }
+                else {
+                    DatabaseHandler db = new DatabaseHandler(view.getContext());
+
+                    Spinner spinner = (Spinner) findViewById(R.id.mainSpinner);
+                    String category = spinner.getSelectedItem().toString();
+
+                    List<Task> t = db.getAllTasksFromCategory(category);
+
+                    textView.setText(getString(R.string.percentage_format, getAverageError(t) * 100));
+                }
 
                 return;
 
