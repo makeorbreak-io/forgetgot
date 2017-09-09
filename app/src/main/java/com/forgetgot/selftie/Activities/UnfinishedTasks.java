@@ -23,9 +23,7 @@ public class UnfinishedTasks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unfinished_tasks);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.activity_tasks);
 
         DatabaseHandler db = new DatabaseHandler(this);
         taskList = db.getAllUninishedTasks();
@@ -52,8 +50,11 @@ public class UnfinishedTasks extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp(){
-        finish();
-        return true;
+    public void onContentChanged() {
+        super.onContentChanged();
+
+        View empty = findViewById(R.id.empty);
+        ListView list = (ListView) findViewById(R.id.simpleListView);
+        list.setEmptyView(empty);
     }
 }

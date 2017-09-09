@@ -16,17 +16,12 @@ import java.util.List;
 
 public class FinishedTasks extends AppCompatActivity {
     ListView simpleList;
-    List<Task> taskList; /*[] = {new Task(1, "Proj1", "category1",0.5),
-            new Task(2, "Proj2", "category2",0.25),
-            new Task(3, "Proj3", "category1",1),
-            new Task(4, "Proj4", "category1",0.5),
-            new Task(5, "Proj5", "category3",2),
-            new Task(6, "Proj6", "category1",1.5)};*/
+    List<Task> taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finished_tasks);
+        setContentView(R.layout.activity_tasks);
         simpleList = (ListView)findViewById(R.id.simpleListView);
 
         DatabaseHandler db = new DatabaseHandler(this);
@@ -50,8 +45,11 @@ public class FinishedTasks extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp(){
-        finish();
-        return true;
+    public void onContentChanged() {
+        super.onContentChanged();
+
+        View empty = findViewById(R.id.empty);
+        ListView list = (ListView) findViewById(R.id.simpleListView);
+        list.setEmptyView(empty);
     }
 }
