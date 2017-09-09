@@ -1,13 +1,17 @@
 package com.forgetgot.selftie.Database;
 
-/**
- * Created by ines on 08-09-2017.
- */
-
-class SubTask {
+public class SubTask {
     private String name;
     private double time;
     private int taskId;
+
+    public SubTask(){}
+
+    public SubTask(int task, String name, double time){
+        this.taskId = task;
+        this.name = name;
+        this.time = time;
+    }
 
     public void setName(String name) {
         this.name = name;

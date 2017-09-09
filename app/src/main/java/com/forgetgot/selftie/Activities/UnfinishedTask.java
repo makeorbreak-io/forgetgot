@@ -6,11 +6,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.forgetgot.selftie.R;
+import com.forgetgot.selftie.Database.SubTask;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UnfinishedTask extends AppCompatActivity {
-    ArrayList<Float> times;
+    List<SubTask> subTaskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +20,11 @@ public class UnfinishedTask extends AppCompatActivity {
         setContentView(R.layout.activity_unfinished_task);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        times = new ArrayList<>();
+        subTaskList = new ArrayList<>();
 
-        times.add(Float.valueOf("0.25"));
-        times.add(Float.valueOf("0.30"));
-        times.add(Float.valueOf("0.10"));
+        subTaskList.add(new SubTask(1, "SubTask1", 0.25));
+        subTaskList.add(new SubTask(1, "SubTask2", 0.30));
+        subTaskList.add(new SubTask(1, "SubTask3", 0.10));
 
         TextView t;
 
@@ -38,30 +40,11 @@ public class UnfinishedTask extends AppCompatActivity {
 
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.time_list);
 
-        for(int i = 0; i < times.size(); i++){
-            String text = "" + (i+1);
-
-            switch (i){
-                case 0:
-                    text += "st";
-                    break;
-                case 1:
-                    text += "nd";
-                    break;
-                case 2:
-                    text += "rd";
-                    break;
-                default:
-                    text += "th";
-                    break;
-
-            }
-
-            text += " -> " + times.get(i).toString();
+        for(SubTask subTask : subTaskList){
             t=new TextView(this);
 
-            t.setTextSize(30);
-            t.setText(text);
+            t.setTextSize(20);
+            t.setText(getString(R.string.subTask_format, subTask.getName(), subTask.getTime()));
             linearLayout.addView(t);
         }
     }
