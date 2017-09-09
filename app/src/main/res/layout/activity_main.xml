@@ -69,7 +69,7 @@
 
         <Spinner
             android:id="@+id/mainSpinner"
-            android:layout_width="100dp"
+            android:layout_width="170dp"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -97,7 +97,7 @@
                 android:id="@+id/mainCreateTask"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0"
                 android:gravity="center_vertical"
                 android:text="@string/create_task_label"
                 android:textSize="24sp"
@@ -105,14 +105,16 @@
                 tools:layout_editor_absoluteY="180dp" />
 
             <ImageButton
-                android:id="@+id/mainAddBtn"
-                android:layout_width="75dp"
+                android:id="@+id/mainAddButton"
+                android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:layout_weight=".5"
-                android:background="@drawable/add_button1"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:onClick="goCreateTask"
-                tools:layout_editor_absoluteX="49dp"
-                tools:layout_editor_absoluteY="16dp" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/add_button1"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="76dp" />
 
         </TableRow>
 
@@ -124,7 +126,7 @@
                 android:id="@+id/mainPendingTask"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0"
                 android:gravity="center_vertical"
                 android:text="@string/pending_tasks_label"
                 android:textSize="24sp"
@@ -133,11 +135,13 @@
 
             <ImageButton
                 android:id="@+id/mainPlayBtn"
-                android:layout_width="75dp"
+                android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:layout_weight=".5"
-                android:background="@drawable/play_button"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:onClick="goUnfinished"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/play_button"
                 tools:layout_editor_absoluteX="214dp"
                 tools:layout_editor_absoluteY="254dp" />
 
@@ -151,7 +155,7 @@
                 android:id="@+id/mainFinishedTask"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0"
                 android:gravity="center_vertical"
                 android:text="@string/finished_tasks_label"
                 android:textSize="24sp"
@@ -162,9 +166,11 @@
                 android:id="@+id/mainArchive"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_weight=".5"
-                android:background="@drawable/archive_button"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:onClick="goFinished"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/archive_button"
                 tools:layout_editor_absoluteX="214dp"
                 tools:layout_editor_absoluteY="350dp" />
 
