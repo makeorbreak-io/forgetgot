@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="25dp"
                 android:paddingRight="25dp"
-                android:paddingTop="15dp"
+                android:paddingTop="25dp"
                 android:text="Developed in Make or Break (2017) by:\nFrancisco Barbosa\nHélder Antunes\nInês Proença\nPedro Pacheco"
                 android:textAlignment="center"
                 android:textSize="18sp"

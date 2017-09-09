@@ -63,8 +63,6 @@ public class Homepage extends AppCompatActivity {
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, categories);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
         spinner.setAdapter(spinnerArrayAdapter);
-
-
     }
 
 
@@ -74,10 +72,8 @@ public class Homepage extends AppCompatActivity {
 
         for (Task task: tasks) sum+=calculateError(db,task);
 
-        if(tasks.size()!=0)
-            return sum/tasks.size();
-        else
-            return 0;
+        if(tasks.size()!=0) return sum/tasks.size();
+        else return 0;
     }
 
     public void goCreateTask(View v){
