@@ -10,39 +10,39 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Homepage">
+        <activity android:name=".Activities.Homepage" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.UnfinishedTasks">
+        <activity android:name=".Activities.UnfinishedTasks" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Homepage" />
         </activity>
-        <activity android:name=".Activities.UnfinishedTask">
+        <activity android:name=".Activities.UnfinishedTask" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.UnfinishedTasks" />
         </activity>
-        <activity android:name=".Activities.CreateTask">
+        <activity android:name=".Activities.CreateTask" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Homepage" />
         </activity>
-        <activity android:name=".Activities.FinishedTasks">
+        <activity android:name=".Activities.FinishedTasks" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Homepage" />
         </activity>
-        <activity android:name=".Activities.FinishedTask">
+        <activity android:name=".Activities.FinishedTask" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.FinishedTasks" />
         </activity>
-        <activity android:name=".Activities.AboutActivity">
+        <activity android:name=".Activities.AboutActivity" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.Homepage" />
